@@ -1,0 +1,91 @@
+{
+  "name": "hostdock",
+  "version": "1.0.0",
+  "description": "SSH Connection & Config Manager - HostDock",
+  "main": "src/main/main.js",
+  "author": {
+    "name": "HostDock",
+    "email": "dev@sshmanager.app"
+  },
+  "homepage": "https://github.com/user/ssh-manager",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --no-sandbox --disable-gpu",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "build:all": "electron-builder --win --mac --linux"
+  },
+  "dependencies": {
+    "node-pty": "^1.1.0",
+    "xterm": "^5.3.0",
+    "xterm-addon-fit": "^0.8.0"
+  },
+  "devDependencies": {
+    "electron": "^35.7.5",
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "appId": "com.hostdock.app",
+    "productName": "HostDock",
+    "asar": true,
+    "compression": "maximum",
+    "npmRebuild": true,
+    "files": [
+      "src/**/*",
+      "node_modules/node-pty/lib/**",
+      "node_modules/node-pty/build/Release/*.node",
+      "node_modules/node-pty/package.json",
+      "node_modules/xterm/lib/**",
+      "node_modules/xterm/css/**",
+      "node_modules/xterm/package.json",
+      "node_modules/xterm-addon-fit/lib/**",
+      "node_modules/xterm-addon-fit/package.json",
+      "!**/node_modules/electron/**",
+      "!**/node_modules/electron-builder/**",
+      "!**/node_modules/app-builder-bin/**",
+      "!**/node_modules/electron-winstaller/**",
+      "!**/node_modules/7zip-bin/**",
+      "!**/node_modules/@types/**",
+      "!**/*.map",
+      "!**/*.ts",
+      "!**/*.md",
+      "!**/LICENSE*",
+      "!**/CHANGELOG*"
+    ],
+    "asarUnpack": [
+      "node_modules/node-pty/**"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "build/icon.icns",
+      "category": "public.app-category.developer-tools",
+      "hardenedRuntime": true,
+      "entitlements": "build/entitlements.mac.plist"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "build/icon.png",
+      "category": "Development"
+    }
+  }
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.tailwindcss.com; font-src https://fonts.gstatic.com; img-src 'self' data:;">
+  <title>HostDock</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "error": "var(--c-error)",
+            "on-surface-variant": "var(--c-on-surface-variant)",
+            "tertiary-dim": "var(--c-tertiary-dim)",
+            "primary": "var(--c-primary)",
+            "inverse-on-surface": "var(--c-inverse-on-surface)",
+            "on-primary-container": "var(--c-on-primary-container)",
+            "surface-variant": "var(--c-surface-variant)",
+            "on-tertiary-container": "var(--c-on-tertiary-container)",
+            "surface-container": "var(--c-surface-container)",
+            "secondary": "var(--c-secondary)",
+            "on-error": "var(--c-on-error)",
+            "on-secondary-container": "var(--c-on-secondary-container)",
+            "on-primary": "var(--c-on-primary)",
+            "on-error-container": "var(--c-on-error-container)",
+            "tertiary": "var(--c-tertiary)",
+            "on-tertiary-fixed": "var(--c-on-tertiary-fixed)",
+            "surface": "var(--c-surface)",
+            "on-tertiary-fixed-variant": "var(--c-on-tertiary-fixed-variant)",
+            "primary-fixed-dim": "var(--c-primary-fixed-dim)",
+            "on-primary-fixed-variant": "var(--c-on-primary-fixed-variant)",
+            "inverse-primary": "var(--c-inverse-primary)",
+            "secondary-container": "var(--c-secondary-container)",
+            "tertiary-fixed-dim": "var(--c-tertiary-fixed-dim)",
+            "surface-container-low": "var(--c-surface-container-low)",
+            "surface-container-highest": "var(--c-surface-container-highest)",
+            "inverse-surface": "var(--c-inverse-surface)",
+            "on-secondary": "var(--c-on-secondary)",
+            "surface-dim": "var(--c-surface-dim)",
+            "surface-bright": "var(--c-surface-bright)",
+            "secondary-fixed-dim": "var(--c-secondary-fixed-dim)",
+            "background": "var(--c-background)",
+            "surface-tint": "var(--c-surface-tint)",
+            "on-primary-fixed": "var(--c-on-primary-fixed)",
+            "primary-container": "var(--c-primary-container)",
+            "secondary-dim": "var(--c-secondary-dim)",
+            "secondary-fixed": "var(--c-secondary-fixed)",
+            "primary-dim": "var(--c-primary-dim)",
+            "tertiary-fixed": "var(--c-tertiary-fixed)",
+            "on-secondary-fixed-variant": "var(--c-on-secondary-fixed-variant)",
+            "surface-container-lowest": "var(--c-surface-container-lowest)",
+            "error-container": "var(--c-error-container)",
+            "surface-container-high": "var(--c-surface-container-high)",
+            "outline": "var(--c-outline)",
+            "error-dim": "var(--c-error-dim)",
+            "primary-fixed": "var(--c-primary-fixed)",
+            "tertiary-container": "var(--c-tertiary-container)",
+            "on-surface": "var(--c-on-surface)",
+            "on-background": "var(--c-on-background)",
+            "on-tertiary": "var(--c-on-tertiary)",
+            "outline-variant": "var(--c-outline-variant)",
+            "on-secondary-fixed": "var(--c-on-secondary-fixed)"
+          },
+          fontFamily: {
+            "headline": ["Space Grotesk"],
+            "body": ["Inter"],
+            "label": ["Space Grotesk"],
+            "mono": ["JetBrains Mono"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+  <style>
+    :root, [data-theme="green"] {
+      --c-error:#ff7351;--c-on-surface-variant:#adaaaa;--c-tertiary-dim:#00e2ed;--c-primary:#52fd2e;--c-inverse-on-surface:#565555;--c-on-primary-container:#0a4b00;--c-surface-variant:#262626;--c-on-tertiary-container:#00555a;--c-surface-container:#1a1a1a;--c-secondary:#679cff;--c-on-error:#450900;--c-on-secondary-container:#f7f7ff;--c-on-primary:#0e5b00;--c-on-error-container:#ffd2c8;--c-tertiary:#97f8ff;--c-on-tertiary-fixed:#004145;--c-surface:#0e0e0e;--c-on-tertiary-fixed-variant:#006065;--c-primary-fixed-dim:#40ee1a;--c-on-primary-fixed-variant:#116600;--c-inverse-primary:#136f00;--c-secondary-container:#005bc1;--c-tertiary-fixed-dim:#00e2ed;--c-surface-container-low:#131313;--c-surface-container-highest:#262626;--c-inverse-surface:#fcf9f8;--c-on-secondary:#001f4a;--c-surface-dim:#0e0e0e;--c-surface-bright:#2c2c2c;--c-secondary-fixed-dim:#a9c4ff;--c-background:#0e0e0e;--c-surface-tint:#52fd2e;--c-on-primary-fixed:#094600;--c-primary-container:#34e507;--c-secondary-dim:#0070eb;--c-secondary-fixed:#bed2ff;--c-primary-dim:#40ee1a;--c-tertiary-fixed:#21f1fd;--c-on-secondary-fixed-variant:#004da6;--c-surface-container-lowest:#000000;--c-error-container:#b92902;--c-surface-container-high:#20201f;--c-outline:#767575;--c-error-dim:#d53d18;--c-primary-fixed:#52fd2e;--c-tertiary-container:#21f1fd;--c-on-surface:#ffffff;--c-on-background:#ffffff;--c-on-tertiary:#005f64;--c-outline-variant:#484847;--c-on-secondary-fixed:#003270;
+      --sidebar-bg:#131313;--sidebar-active-bg:#1a1a1a;
+    }
+    [data-theme="cyan"] {
+      --c-primary:#00e5ff;--c-primary-dim:#00b8d4;--c-primary-container:#006978;--c-primary-fixed:#00e5ff;--c-primary-fixed-dim:#00b8d4;--c-on-primary:#003640;--c-on-primary-container:#9ef3ff;--c-on-primary-fixed:#00363f;--c-on-primary-fixed-variant:#004f5a;--c-inverse-primary:#006978;--c-surface-tint:#00e5ff;--c-secondary:#679cff;--c-tertiary:#ff8a80;--c-tertiary-dim:#ff5252;--c-tertiary-container:#c62828;--c-tertiary-fixed:#ff8a80;--c-tertiary-fixed-dim:#ff5252;
+    }
+    [data-theme="purple"] {
+      --c-primary:#d0a0ff;--c-primary-dim:#b47cff;--c-primary-container:#7c3aed;--c-primary-fixed:#d0a0ff;--c-primary-fixed-dim:#b47cff;--c-on-primary:#2e004e;--c-on-primary-container:#ead6ff;--c-on-primary-fixed:#2e004e;--c-on-primary-fixed-variant:#5b21b6;--c-inverse-primary:#5b21b6;--c-surface-tint:#d0a0ff;--c-secondary:#f0abfc;--c-tertiary:#fbbf24;--c-tertiary-dim:#f59e0b;--c-tertiary-container:#b45309;--c-tertiary-fixed:#fbbf24;--c-tertiary-fixed-dim:#f59e0b;
+    }
+    [data-theme="orange"] {
+      --c-primary:#ffab40;--c-primary-dim:#ff9100;--c-primary-container:#e65100;--c-primary-fixed:#ffab40;--c-primary-fixed-dim:#ff9100;--c-on-primary:#3e1c00;--c-on-primary-container:#ffdcbe;--c-on-primary-fixed:#3e1c00;--c-on-primary-fixed-variant:#7a3300;--c-inverse-primary:#7a3300;--c-surface-tint:#ffab40;--c-secondary:#81d4fa;--c-tertiary:#ef5350;--c-tertiary-dim:#e53935;--c-tertiary-container:#b71c1c;--c-tertiary-fixed:#ef5350;--c-tertiary-fixed-dim:#e53935;
+    }
+    [data-theme="red"] {
+      --c-primary:#ff5252;--c-primary-dim:#ff1744;--c-primary-container:#c62828;--c-primary-fixed:#ff5252;--c-primary-fixed-dim:#ff1744;--c-on-primary:#3b0000;--c-on-primary-container:#ffdad6;--c-on-primary-fixed:#3b0000;--c-on-primary-fixed-variant:#8e0000;--c-inverse-primary:#8e0000;--c-surface-tint:#ff5252;--c-secondary:#80cbc4;--c-tertiary:#ffab40;--c-tertiary-dim:#ff9100;--c-tertiary-container:#e65100;--c-tertiary-fixed:#ffab40;--c-tertiary-fixed-dim:#ff9100;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #0e0e0e; }
+    ::-webkit-scrollbar-thumb { background: #262626; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--c-primary); }
+    .cursor-blink { animation: blink 1s step-end infinite; }
+    @keyframes blink { from, to { opacity: 1; } 50% { opacity: 0; } }
+    .page.hidden { display: none; }
+    /* Electron title bar drag region */
+    .drag-region { -webkit-app-region: drag; }
+    .no-drag { -webkit-app-region: no-drag; }
+    .drag-above { box-shadow: 0 -2px 0 0 var(--c-primary); }
+    .drag-below { box-shadow: 0 2px 0 0 var(--c-primary); }
+    #sidebar.collapsed { width: 4rem; }
+    #sidebar.collapsed .sidebar-full { display: none; }
+    #sidebar.collapsed .nav-link { justify-content: center; padding-left: 0; padding-right: 0; }
+    #sidebar.collapsed .nav-link span.material-symbols-outlined { margin: 0; }
+    #sidebar.collapsed .px-6 { padding-left: 0; padding-right: 0; justify-content: center; }
+    #sidebar.collapsed .px-4 { padding-left: 0.5rem; padding-right: 0.5rem; }
+    #main-content.expanded { margin-left: 4rem; }
+  </style>
+  <link rel="stylesheet" href="../../node_modules/xterm/css/xterm.css">
+  <script src="../../node_modules/xterm/lib/xterm.js"></script>
+  <script src="../../node_modules/xterm-addon-fit/lib/xterm-addon-fit.js"></script>
+</head>
+<body class="flex h-screen overflow-hidden bg-surface text-on-surface font-body">
+
+  <!-- SideNavBar -->
+  <aside id="sidebar" class="fixed left-0 top-0 h-screen w-64 z-40 bg-surface-container-low flex flex-col py-6 font-['JetBrains_Mono'] text-xs uppercase tracking-widest transition-all duration-200">
+    <div class="px-6 mb-8 flex items-center justify-between">
+      <div class="sidebar-full">
+        <h1 class="text-primary font-bold text-xl tracking-tighter uppercase font-headline">HOSTDOCK</h1>
+        <p class="text-on-surface-variant text-[10px] tracking-[0.2em] mt-1">ROOT ACCESS</p>
+      </div>
+      <button id="sidebar-toggle" onclick="toggleSidebar()" class="text-on-surface-variant hover:text-primary transition-colors p-1">
+        <span class="material-symbols-outlined text-lg">menu</span>
+      </button>
+    </div>
+
+    <nav class="flex-1 space-y-1" id="nav-links">
+      <a href="#" data-page="hosts" class="nav-link flex items-center space-x-3 text-primary bg-surface-container border-l-4 border-primary px-4 py-3 ml-0 active:scale-[0.98] transition-transform">
+        <span class="material-symbols-outlined">dns</span>
+        <span class="sidebar-full">Hosts</span>
+      </a>
+      <a href="#" data-page="keys" class="nav-link flex items-center space-x-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low hover:text-primary transition-all active:scale-[0.98]">
+        <span class="material-symbols-outlined">vpn_key</span>
+        <span class="sidebar-full">Keys</span>
+      </a>
+      <a href="#" data-page="terminal" class="nav-link flex items-center space-x-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low hover:text-primary transition-all active:scale-[0.98]">
+        <span class="material-symbols-outlined">terminal</span>
+        <span class="sidebar-full">Terminal</span>
+      </a>
+    </nav>
+
+    <div class="mt-auto px-4 space-y-1">
+      <button onclick="hostsPage.showAddModal()" class="sidebar-full w-full bg-gradient-to-tr from-primary to-primary-container text-on-primary-container font-headline font-bold py-3 px-4 rounded mb-6 active:scale-95 transition-transform tracking-wider">
+        NEW CONNECTION
+      </button>
+      <a href="#" data-page="settings" class="nav-link flex items-center space-x-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low hover:text-primary transition-all">
+        <span class="material-symbols-outlined">settings</span>
+        <span class="sidebar-full">Settings</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main id="main-content" class="flex-1 ml-64 h-screen bg-surface flex flex-col overflow-hidden transition-all duration-200">
+    <!-- TopAppBar -->
+    <header class="shrink-0 z-50 bg-surface-container-low/60 backdrop-blur-xl flex items-center justify-between px-6 py-3 drag-region">
+      <div class="flex items-center flex-1 max-w-xl no-drag">
+        <div class="relative w-full">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+          <input id="global-search" class="w-full bg-surface-container-lowest border-none focus:ring-1 focus:ring-primary text-primary font-mono text-xs py-2 pl-10 pr-4 placeholder:text-outline-variant rounded" placeholder="SEARCH_HOSTS_OR_IP..." type="text"/>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4 ml-6 no-drag">
+        <button class="text-on-surface-variant hover:text-primary transition-colors active:scale-95">
+          <span class="material-symbols-outlined">notifications</span>
+        </button>
+        <button class="text-on-surface-variant hover:text-primary transition-colors active:scale-95">
+          <span class="material-symbols-outlined">settings_ethernet</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Pages -->
+    <div class="flex-1 min-h-0 overflow-hidden">
+      <div id="page-hosts" class="page h-full"></div>
+      <div id="page-keys" class="page hidden h-full overflow-y-auto"></div>
+      <div id="page-terminal" class="page hidden h-full overflow-hidden"></div>
+      <div id="page-settings" class="page hidden h-full overflow-y-auto"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="shrink-0 px-8 py-3 flex justify-between items-center opacity-30 pointer-events-none">
+      <p class="font-mono text-[8px] tracking-[0.5em]">SYSTEM VERSION: 1.0.0-STABLE</p>
+      <div class="flex space-x-4 items-center">
+        <div class="w-32 h-1 bg-surface-container-highest relative overflow-hidden">
+          <div class="absolute inset-0 bg-primary/20 w-1/3 animate-[pulse_2s_infinite]"></div>
+        </div>
+        <p class="font-mono text-[8px] tracking-[0.5em]">IO TRAFFIC: ACTIVE</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal-overlay" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/60 backdrop-blur-sm">
+    <div id="modal-content" class="bg-surface-container rounded-md max-w-lg w-full mx-4 shadow-[0_24px_48px_rgba(0,0,0,0.5)] border border-outline-variant/10"></div>
+  </div>
+
+  <script src="pages/hosts.js"></script>
+  <script src="pages/keys.js"></script>
+  <script src="pages/terminal.js"></script>
+  <script src="pages/settings.js"></script>
+  <script src="components/router.js"></script>
+  <script>
+    // Apply saved theme on startup
+    try {
+      const s = JSON.parse(localStorage.getItem('ssh-manager-settings'));
+      if (s) {
+        const el = document.documentElement;
+        if (s.theme === 'custom' && s.customColor) {
+          const hex = s.customColor;
+          const dim = '#' + [1,3,5].map(i => Math.round(parseInt(hex.slice(i,i+2),16)*0.78).toString(16).padStart(2,'0')).join('');
+          ['primary','primary-fixed','surface-tint'].forEach(k => el.style.setProperty('--c-'+k, hex));
+          ['primary-dim','primary-container','primary-fixed-dim'].forEach(k => el.style.setProperty('--c-'+k, dim));
+          el.style.setProperty('--c-on-primary-container', hex);
+        } else if (s.theme) {
+          el.setAttribute('data-theme', s.theme);
+        }
+        if (s.textColor) { el.style.setProperty('--c-on-surface', s.textColor); el.style.setProperty('--c-on-background', s.textColor); }
+        if (s.textDimColor) el.style.setProperty('--c-on-surface-variant', s.textDimColor);
+        if (s.buttonTextColor) { el.style.setProperty('--c-on-primary', s.buttonTextColor); el.style.setProperty('--c-on-primary-container', s.buttonTextColor); }
+      }
+    } catch {}
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('collapsed');
+      document.getElementById('main-content').classList.toggle('expanded');
+      window.dispatchEvent(new Event('resize'));
+    }
+  </script>
+</body>
+</html>
