@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - run: ${{ matrix.cmd }}
+      - run: ${{ matrix.cmd }} --publish never
       - uses: actions/upload-artifact@v4
         with:
           name: dist-${{ matrix.os }}
